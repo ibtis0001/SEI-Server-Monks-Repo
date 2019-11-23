@@ -1,0 +1,20 @@
+{
+  "name": "sei-servermonks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibtis0001/SEI-ServerMonks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ibtis0001/SEI-ServerMonks/issues"
+  },
+  "homepage": "https://github.com/ibtis0001/SEI-ServerMonks#readme"
+}
