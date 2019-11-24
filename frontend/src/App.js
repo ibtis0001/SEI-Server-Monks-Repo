@@ -4,6 +4,7 @@ import Header from './Comp/Header'
 import Profile from './SellerComp/container/Profile'
 import LoginS from './SellerComp/container/Login'
 import RegisterS from './SellerComp/container/Register'
+import ProudectDetails from './Comp/ProductDetails'
 import { getToken, setToken, logout} from './services/auth'
 import axios from 'axios'
 import {BrowserRouter,Route} from 'react-router-dom';
@@ -88,7 +89,7 @@ class App extends Component {
 <Route exact path = '/login' component ={LoginS}></Route>
 <Route exact path = '/register' component ={RegisterS}></Route>
 <Route exact path = '/profile' component = {Profile}></Route>
-{/* <Route exact path = '/sellerpage' component = {SellerPage}></Route> */}
+<Route exaxt path ='/proudectdetails' component={ProudectDetails}></Route>
       </BrowserRouter> 
     
 

@@ -4,15 +4,15 @@ import { login }  from '../../functionAuth/functionAuth'
 import {
     Form,
     Button,
-    //   InputGroup,
     Col,
-    FormControl,
     Card,
     Container,
     Row
   } from "react-bootstrap";
   import { Formik } from "formik";
-  import * as yup from "yup";
+
+
+
 export default class Register extends Component {
 state ={}
 onChangHandler=(e)=>{
@@ -45,12 +45,12 @@ onSubmitHandelr =(e)=>{
               }
               return errors;
             }}
-            onSubmit={(values, { setSubmitting }) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                setSubmitting(false);
-              }, 400);
-            }}
+            // onSubmit={(values, { setSubmitting }) => {
+            //   setTimeout(() => {
+            //     alert(JSON.stringify(values, null, 2));
+            //     setSubmitting(false);
+            //   }, 400);
+            // }}
           >
             {({
               values,
