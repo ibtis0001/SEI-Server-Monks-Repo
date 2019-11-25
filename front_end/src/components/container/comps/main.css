@@ -1,0 +1,33 @@
+*{
+  padding: 0;
+  padding-top: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+
+.nav ul li {
+  display: inline;
+  padding-left: 10px;
+  letter-spacing: 3px;
+  align-items: center;
+
+
+}
+
+.nav a{
+  border: solid 2px black;
+  padding: 10px;
+}
+
+
+.un{
+  display: block;
+}
+
+
+.logcont{
+
+
+  align-self: center;
+}
