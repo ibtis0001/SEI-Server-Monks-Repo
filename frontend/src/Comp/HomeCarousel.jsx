@@ -9,7 +9,7 @@ export default class HomeCarousel extends Component {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://img.represent.com/uploads/1291fbe334d656795b50c73407183b7f.jpg?auto=format&q=93"
+              src="https://i.ibb.co/q05gjHw/photojoiner-photo.jpg"
               alt="First slide"
             />
           

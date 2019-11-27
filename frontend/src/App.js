@@ -11,6 +11,7 @@ import { getToken, setToken, logout } from './services/auth'
 import axios from 'axios'
 import { BrowserRouter, Route } from 'react-router-dom';
 import PDB from './PDB'
+import Cart from './Comp/Cart'
 
 
 let header = {
@@ -19,7 +20,7 @@ let header = {
     "Authorization": `Bearer ${getToken()}`
   }
 }
-
+let cartInfo = []
 class App extends Component {
   constructor(props){
     super(props)
@@ -30,27 +31,32 @@ class App extends Component {
     hasError: false,
     data: PDB.plants,
     cart: [],
-    select:null,
-    
+    select:[],
   }
   this.handleCartToggle = this.handleCartToggle.bind(this);
   }
-  
   handleCartToggle =(select) =>{
-  
-   
-    var temp = []
-    temp = this.state.cart
-    temp.push(select)
-      this.setState({
-       cart : temp,
-        select : select
-       }) 
-       console.log(this.state.cart);
-       
+    console.log('gggggggggggcart');
+    console.log(this.state.cart)
+//  this.setState({cart: [...this.state.cart, select]})
+var temp = []
+temp = this.state.cart
+temp.push(select)
+  this.setState({
+   cart : temp,
+    select : select
+   })
+   if(JSON.parse(localStorage.getItem('product_cart')))
+        this.setState({
+          select:this.state.cart})
+          console.log("select local:",select)
+          cartInfo.push(select)
+      localStorage.setItem('product_cart', JSON.stringify(this.state.cart))
+      console.log(JSON.parse(localStorage.getItem('product_cart')))
    }
-
-
+  //  componentDidMount(){
+  //   this.handleCartToggle()
+  // }
   changeHandler = (e) => {
     //Log every key value and save to state from form
     let data = { ...this.state }
@@ -107,20 +113,22 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <div className="App" >
         <Header></Header>
 
         {/* {lo} */}
 
-        <Route exact path='/' render={(props) => this.state.data !== null ? <Home {...props} data={this.state.data} handleCartToggle={this.handleCartToggle} cart ={this.state.cart} select ={this.state.select}  /> : <Home></Home>} />
+        <Route exact path='/' render={(props) => this.state.data !== null ? <Home {...props} data={this.state.data} handleCartToggle={this.handleCartToggle}  select ={this.state.select}  /> : <Home></Home>} />
         <Route exact path='/login' component={LoginS}></Route>
         <Route exact path='/register' component={RegisterS}></Route>
         <Route exact path='/profile' component={Profile}></Route>
+        <Route exact path='/Cart' render={(props) => this.state.data !== null ? <Cart {...props} data={this.state.data} handleCartToggle = {this.handleCartToggle}  cart ={this.state.cart} /> : null}></Route>
+
         {/* <Route exact path ='/signup' component ={Signup}></Route> */}
         <Route exaxt path='/proudectdetails/:id' render={(props) => this.state.data !== null ? <ProudectDetails {...props} data={this.state.data} handleCartToggle = {this.handleCartToggle}  select ={this.state.select} /> : null} />
 
 
-        <Footer />
+        <Footer/>
         {/* <Home></Home> */}
       </div>
     );
