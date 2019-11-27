@@ -14,8 +14,27 @@ temp.push(cart)
     // 
     render() {
         var cart = JSON.parse(localStorage.getItem('product_cart'))
-        console.log(this.state.cart)
-       
+        console.log(cart)
+        //  let len =cart.length
+         let group = cart.reduce((r, a) => {
+            console.log("a", a);
+            console.log('r', r);
+            r[a.id] = [...r[a.id] || [], a];
+            return r;
+           }, {});
+           let cartelm
+           console.log(group);
+    //         for(let i of group){
+    //     cartelm = i.map((elm)=>{
+    //        console.log(elm)
+    //        return <tr>
+    //         {/* <td>{cart.indexOf(elm)+1}</td>
+    //         <td>{elm.id}</td>
+    //         <td>{elm.name}</td>
+    //         <td>{quntity}</td> */}
+    //         </tr>
+    //    })
+    // }
         // console.log(this.state.cart)
        //mapping to list order items another mapping to calucate sum
       //map1 //return   <tr>
@@ -25,42 +44,26 @@ temp.push(cart)
     //   <td>@mdo</td>
     // </tr>
     //map2 retur prics sum
-
         return (
             <div>
                 <Table striped bordered hover>
   <thead>
-    <tr>
-      <th>#</th>
-      <th>Order No</th>
-      <th>item </th>
-      <th>Quantity</th>
-    </tr>
   </thead>
   <tbody>
-  
-    <tr>
-      <td>2</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
+  {cartelm}
+  <tr>
       <td>3</td>
       <td >Larry the Bird</td>
       <td>@twitter</td>
     </tr>
     <tr>
-    
         <td>
-         
         Price
         </td>
         <td colSpan="3">
         0000
         {/* price sum */}
         </td>
-
     </tr>
   </tbody>
 </Table>

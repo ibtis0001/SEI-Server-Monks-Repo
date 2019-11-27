@@ -48,17 +48,22 @@ temp.push(select)
    cart : temp,
     select : select
    })
-   if(JSON.parse(localStorage.getItem('product_cart')))
+   if(JSON.parse(localStorage.getItem("product_cart"))!=null){
+   let temp = JSON.parse(localStorage.getItem("product_cart"));
+   console.log(this.state.cart)
+       temp.push(select)
         this.setState({
-          select:this.state.cart})
+          select:this.state.select})
           console.log("select local:",select)
-          cartInfo.push(select)
-      localStorage.setItem('product_cart', JSON.stringify(this.state.cart))
+          // cartInfo.push(select)
+      localStorage.setItem('product_cart', JSON.stringify(temp))
       console.log(JSON.parse(localStorage.getItem('product_cart')))
+   } else {
+     let temp = []
+     temp.push(select)
+     localStorage.setItem('product_cart', JSON.stringify(temp))
    }
-  //  componentDidMount(){
-  //   this.handleCartToggle()
-  // }
+  }
   changeHandler = (e) => {
     //Log every key value and save to state from form
     let data = { ...this.state }

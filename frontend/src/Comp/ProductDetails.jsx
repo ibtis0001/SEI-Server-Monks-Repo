@@ -3,8 +3,7 @@ import { Container, Col, Row, Card, Button } from 'react-bootstrap';
 export default class ComponentDetails extends Component {
   state = {
     data: this.props.data,
-
-    cart :this.props.cart
+  cart :this.props.cart
   }
 
  
@@ -17,7 +16,7 @@ export default class ComponentDetails extends Component {
       return element.id == params.id
      
   })
-
+  
 
     return (
       <div>
