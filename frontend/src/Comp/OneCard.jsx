@@ -4,7 +4,11 @@ import {Redirect, } from "react-router-dom"
 export default class OneCard extends Component {
 
 state={
+<<<<<<< HEAD
   // cart:this.props.cart
+=======
+  cart:this.props.cart
+>>>>>>> df36dd71078f4b3032dd1521273e5d7f0b11bf32
 }
 
   render() {

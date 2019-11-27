@@ -12,7 +12,28 @@ export const login = (user)=>{
     return axios.post('/users/login' , user)
     .then(token =>{
             console.log(token)
-        localStorage.setItem('usertoken' , token.data) // localStorage in the browser
+            if(token.data.token){
+                localStorage.setItem('usertoken' , token.data.token) // localStorage in the browser
+                return true
+            }else if(token.data.error){
+                return false
+            }
+       
+        
+    })
+    .catch(err=>{
+        console.log(err)
+        return err
+    }
+        )
+}
+export const logout = (user)=>{
+    return axios.post('/users/logout' , user)
+    .then(token =>{
+            console.log(token)
+        localStorage.removeItem('usertoken') // localStorage in the browser
+        
+        
     })
     .catch(err=>console.log(err))
 }
