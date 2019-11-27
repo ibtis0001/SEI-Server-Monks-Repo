@@ -133,7 +133,7 @@ onSubmitHandelr =(e)=>{
                         onBlur={handleBlur}
                         isValid={touched.email && !errors.email}
                         isInvalid={
-                          !!errors.terms && touched.email && errors.email
+                          !!errors.email && touched.email && errors.email
                         }
                       />
                       <Form.Control.Feedback type="invalid">

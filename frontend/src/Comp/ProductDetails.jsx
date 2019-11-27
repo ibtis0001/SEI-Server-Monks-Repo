@@ -1,29 +1,46 @@
 import React, { Component } from 'react';
-import { Container, Col,  Row, Card, Button} from 'react-bootstrap';
+import { Container, Col, Row, Card, Button } from 'react-bootstrap';
 export default class ComponentDetails extends Component {
-    render() {
-        return (
-            <div>
-<Container>
-  <Row>
-    <Col sm={6} elementType="card" >
-    <Card.Img  className="productDetailImage"variant="top" src="https://img.represent.com/uploads/68df14cb91bc6daca567a85a0171767a.jpg?auto=format&w=420" />
-    </Col>
-    <Col sm={4}>
-    <Card.Body>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <Card.Title className="description">Card Title</Card.Title>
-    <br></br>
-    <Card.Text  className="description">
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
+  state = {
+    data: this.props.data,
+    // cart :this.props.cart
+  }
+
+ 
+
+
+  render() {
+    let  details = this.state.data.find((element) => {
+      const { match: { params } } = this.props;
+      
+      return element.id == params.id
+     
+  })
+ 
+
+    return (
+      <div>
+      
+        <Container>
+          {/* {console.log(details)} */}
+          <Row>
+            <Col sm={6} elementType="card" >
+              <Card.Img className="productDetailImage" variant="top" src={details.image} />
+            </Col>
+            <Col sm={4}>
+              <Card.Body>
+                <br></br>
+
+
+
+    <Card.Title className="description">{details.name}</Card.Title>
+                <br></br>
+                <Card.Text className="description">
+               {details.desc}
     </Card.Text>
-    {/* <> */}
-    <style type="text/css">
-    {`
+             
+                <style type="text/css">
+                  {`
     .btn-secondary{
     //   background-color: purple;
       color: white;
@@ -33,13 +50,13 @@ export default class ComponentDetails extends Component {
       font-size: 1.5rem;
     }
     `}
-  </style>
-    <Button variant="secondary">Add to Cart</Button>
-  </Card.Body>
-    </Col>
-  </Row>
-  </Container>
-            </div>
-        )
-    }
+                </style>
+                <Button variant="secondary" onClick ={() => { this.props.handleCartToggle(details) } }>Add to Cart</Button>
+              </Card.Body>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    )
+  }
 }
