@@ -15,8 +15,10 @@ const userSchema = new Schema({
     },
     isLogedIn:{
         type:Boolean,
-        default:false
-    }
+        defaultf:false
+    },
+    
+
 }, { timestamps: true })
 
 // module.exports = User = userSchema

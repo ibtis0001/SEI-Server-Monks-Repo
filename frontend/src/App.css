@@ -1,0 +1,24 @@
+.footer{
+  width: 100%;
+  bottom: 0;
+  /* position: fixed; */
+  text-align: center;
+  background-color: rgba(242, 226, 102, 0.872);
+  color: grey;
+  padding: 3px;
+}
+
+.mainContent{
+  width: 90vw;
+  margin: 0 auto;
+  padding: 30px 20px;
+  min-height: 100vh;
+  /* min-height: calc(100vh - 211px - 58px); */
+}
+
+.d-block w-100{
+  width:100%;
+  position: fixed;
+  
+}
+
