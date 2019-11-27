@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { Component } from 'react'
 import {Table, Button} from 'react-bootstrap'
 export default class Cart extends Component {
@@ -70,54 +69,3 @@ temp.push(cart)
         )
     }
 }
-=======
-// import React, { Component } from 'react'
-// import { Modal } from "react-bootstrap";
-
-// export default class Cart extends Component {
-//     state={
-//         modalShow: false,
-//         setModalShow: false,
-//         select: null,
-//         productImage: [],
-//         productName: [],
-//         productPrice: [],
-//     }
-
-//     handleClick(){
-
-
-//         // const [show, setShow] = useState(false);
-//         // const handleClose = () => setShow(false);
-//         // const handleShow = () => setShow(true);
-        
-//         //   // this.setState=({
-//         //   //   load: true,
-//         //   // })
-//       }
-
-
-
-//     render() {
-//         return (
-//             <div>
-//                 <Modal.Dialog>
-//   <Modal.Header closeButton>
-//     <Modal.Title>Modal title</Modal.Title>
-//   </Modal.Header>
-
-//   <Modal.Body>
-//     <p>Modal body text goes here.</p>
-//   </Modal.Body>
-
-//   <Modal.Footer>
-//     <Button variant="secondary">Close</Button>
-//     <Button variant="primary">Save changes</Button>
-//   </Modal.Footer>
-// </Modal.Dialog>
-
-//             </div>
-//         )
-//     }
-// }
->>>>>>> df36dd71078f4b3032dd1521273e5d7f0b11bf32

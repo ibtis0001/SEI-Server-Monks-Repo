@@ -3,15 +3,12 @@
   bottom: 0;
   /* position: fixed; */
   text-align: center;
-<<<<<<< HEAD
   position: relative;
   min-height: 100vh;
   padding-bottom: 2.5rem;   
-=======
   background-color: rgba(242, 226, 102, 0.872);
   color: grey;
   padding: 3px;
->>>>>>> df36dd71078f4b3032dd1521273e5d7f0b11bf32
 }
 
 .mainContent{

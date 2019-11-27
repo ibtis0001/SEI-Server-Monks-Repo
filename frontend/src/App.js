@@ -11,13 +11,10 @@ import { getToken, setToken, logout } from './services/auth'
 import axios from 'axios'
 import { BrowserRouter, Route } from 'react-router-dom';
 import PDB from './PDB'
-<<<<<<< HEAD
 import Cart from './Comp/Cart'
 
-=======
 import Form from './SellerComp/container/Form'
 import Product from './SellerComp/container/Product'
->>>>>>> df36dd71078f4b3032dd1521273e5d7f0b11bf32
 
 let header = {
   headers: {
@@ -36,7 +33,6 @@ class App extends Component {
     hasError: false,
     data: PDB.plants,
     cart: [],
-<<<<<<< HEAD
     select:[],
   }
   this.handleCartToggle = this.handleCartToggle.bind(this);
@@ -63,32 +59,6 @@ temp.push(select)
   //  componentDidMount(){
   //   this.handleCartToggle()
   // }
-=======
-    select:null,
-    
-  }
-  this.handleCartToggle = this.handleCartToggle.bind(this);
-  }
-  
-
-  handleCartToggle =(select) =>{
-    console.log('gggggggggggcart');
-    console.log(select)
- this.setState({cart: [...this.state.cart, select]})
-    // var temp = []
-    //   temp = this.state.cart
-
-      // temp.push(select)
-        this.setState({
-      //     cart : temp,
-          select:select})
-      //     console.log(this.state.cart)
-      localStorage.setItem('product' , select)
-
-   }
-
-
->>>>>>> df36dd71078f4b3032dd1521273e5d7f0b11bf32
   changeHandler = (e) => {
     //Log every key value and save to state from form
     let data = { ...this.state }
@@ -111,17 +81,10 @@ temp.push(select)
           data.hasError = false
 
           this.setState(data)
-<<<<<<< HEAD
 
           this.getGames()
         }
 
-=======
-
-          this.getGames()
-        }
-
->>>>>>> df36dd71078f4b3032dd1521273e5d7f0b11bf32
       })
       .catch(err => {
         let data = { ...this.state }
@@ -152,42 +115,26 @@ temp.push(select)
   }
   render() {
     return (
-<<<<<<< HEAD
       <div className="App" >
-=======
-      <div className="App">
->>>>>>> df36dd71078f4b3032dd1521273e5d7f0b11bf32
         <Header></Header>
 
         {/* {lo} */}
 
-<<<<<<< HEAD
         <Route exact path='/' render={(props) => this.state.data !== null ? <Home {...props} data={this.state.data} handleCartToggle={this.handleCartToggle}  select ={this.state.select}  /> : <Home></Home>} />
         <Route exact path='/login' component={LoginS}></Route>
         <Route exact path='/register' component={RegisterS}></Route>
         <Route exact path='/profile' component={Profile}></Route>
         <Route exact path='/Cart' render={(props) => this.state.data !== null ? <Cart {...props} data={this.state.data} handleCartToggle = {this.handleCartToggle}  cart ={this.state.cart} /> : null}></Route>
-=======
         <Route exact path='/' render={(props) => this.state.data !== null ? <Home {...props} data={this.state.data} handleCartToggle={this.handleCartToggle} select ={this.state.select}  /> : <Home></Home>} />
-        {/* <Route exact path ='/signin' component ={Login}></Route> */}
-        {/* <Route exact path ='/signup' component ={Signup}></Route> */}
-        <Route exact path='/login' component={LoginS}></Route>
-        <Route exact path='/register' component={RegisterS}></Route>
-        <Route exact path='/profile' component={Profile}></Route>
         <Route exact path='/form' component={Form}></Route>
         <Route exact path='/Product' component={Product}></Route>
 
->>>>>>> df36dd71078f4b3032dd1521273e5d7f0b11bf32
 
         {/* <Route exact path ='/signup' component ={Signup}></Route> */}
         <Route exaxt path='/proudectdetails/:id' render={(props) => this.state.data !== null ? <ProudectDetails {...props} data={this.state.data} handleCartToggle = {this.handleCartToggle}  select ={this.state.select} /> : null} />
 
 
-<<<<<<< HEAD
         <Footer/>
-=======
-        <Footer />
->>>>>>> df36dd71078f4b3032dd1521273e5d7f0b11bf32
         {/* <Home></Home> */}
       </div>
     );
