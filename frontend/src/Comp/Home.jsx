@@ -20,7 +20,9 @@ export default class Home extends Component {
     return (
     <div className="mainContent">
 
-<HomeCarousel></HomeCarousel>
+<HomeCarousel>
+  
+</HomeCarousel>
 <br></br>
 <br></br>
 {/* {console.log(this.state.data)} */}

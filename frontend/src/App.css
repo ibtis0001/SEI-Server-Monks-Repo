@@ -1,14 +1,8 @@
-.footer{
-  width: 100%;
-  bottom: 0;
-  /* position: fixed; */
+.App {
   text-align: center;
   position: relative;
   min-height: 100vh;
   padding-bottom: 2.5rem;   
-  background-color: rgba(242, 226, 102, 0.872);
-  color: grey;
-  padding: 3px;
 }
 
 .mainContent{

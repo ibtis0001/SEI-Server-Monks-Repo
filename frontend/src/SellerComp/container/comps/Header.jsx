@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Navbar, Nav, Form, FormControl, Button, Image } from "react-bootstrap";
-import Modal from "react-responsive-modal";
 
 
 

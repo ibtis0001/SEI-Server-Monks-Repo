@@ -130,7 +130,6 @@ temp.push(select)
         <Route exact path='/register' component={RegisterS}></Route>
         <Route exact path='/profile' component={Profile}></Route>
         <Route exact path='/Cart' render={(props) => this.state.data !== null ? <Cart {...props} data={this.state.data} handleCartToggle = {this.handleCartToggle}  cart ={this.state.cart} /> : null}></Route>
-        <Route exact path='/' render={(props) => this.state.data !== null ? <Home {...props} data={this.state.data} handleCartToggle={this.handleCartToggle} select ={this.state.select}  /> : <Home></Home>} />
         <Route exact path='/form' component={Form}></Route>
         <Route exact path='/Product' component={Product}></Route>
 
@@ -140,7 +139,6 @@ temp.push(select)
 
 
         <Footer/>
-        {/* <Home></Home> */}
       </div>
     );
   }

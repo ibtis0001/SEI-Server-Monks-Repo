@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Navbar, Nav, Form, FormControl, Button, Image } from "react-bootstrap";
-import Modal from "react-responsive-modal";
 
 
 
@@ -32,7 +31,6 @@ export default class Header extends Component {
 
     return (
       <div>
-<<<<<<< HEAD
         <Navbar bg="light" expand="lg" style={{padding:'0px'}}>
           <Navbar.Brand  href="/"><img height='70px' width='70px' src='https://i.ibb.co/bj9fYKr/download.png' />  </Navbar.Brand>
        
@@ -44,43 +42,6 @@ export default class Header extends Component {
             
           <a href="/Cart"> <Image   className='m-sm-4' height='30px' width='30px' src ='https://image.flaticon.com/icons/png/512/1374/1374128.png'></Image> </a> 
           
-=======
-        <Navbar bg="light" expand="lg" style={{ padding: '0px' }}>
-          <Navbar.Brand href="/"><img height='70px' width='70px' src='https://i.ibb.co/bj9fYKr/download.png' />  </Navbar.Brand>
-
-          <Nav className="ml-auto">
-            <Nav.Link href="/register">Seller Signup</Nav.Link>
-            <Nav.Link href="/login">Seller Login</Nav.Link>
-            <Nav.Link href='/form'>Form</Nav.Link>
-            <Nav.Link href='/Product'>Product</Nav.Link>
-
-
-
-
-            {/* <Nav.Link href="/sellerpage">I'm a Seller !</Nav.Link> */}
-          </Nav>
-
-
-          <Image className='m-sm-4' height='30px' width='30px' src='https://image.flaticon.com/icons/png/512/1374/1374128.png' onClick={() => this.onOpenModal()} />
-
-          <Modal open={this.state.open} onClose={this.onCloseModal}>
-            Stupppppid cart
-          </Modal>
-
-
-
-
-
-          {/* <Image  className='m-sm-4' height='30px' width='30px' src ='https://image.flaticon.com/icons/png/512/1374/1374128.png'></Image> */}
-          {/* <Modal ref={(node)=>{this.modal = node;}}/> */}
-          {/* 
-          <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button> */}
-
-
-
->>>>>>> df36dd71078f4b3032dd1521273e5d7f0b11bf32
         </Navbar>
       </div>
     );
