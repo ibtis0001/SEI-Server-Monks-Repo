@@ -16,7 +16,7 @@ router.post('/register', (req, res) => {
         password : req.body.password
     }
     console.log(newUser)
-    // Search if email is exist or not
+    // Search if email  exist or not
     User.findOne({email : req.body.email})
     .then(user => {
         // if email not exist
@@ -30,7 +30,7 @@ router.post('/register', (req, res) => {
                 .catch(err => res.send(err))
             })
         }
-        // if email is exist
+        // if email exist
         else {
             res.send(`email is already used`)
         }
@@ -63,7 +63,7 @@ router.post('/login', (req, res)=> {
         else {
             // if email not exist
             console.log("yess")
-            res.json({error : "email is not found"}).status(404)
+            res.json({error : "email is not 3found"}).status(404)
         }
     })
     .catch(err => res.send(err))
