@@ -13,7 +13,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import PDB from './PDB'
 import Form from './SellerComp/container/Form'
 import Product from './SellerComp/container/Product'
-
+import Cart from './Comp/Cart'
 let header = {
   headers: {
     "Content-Type": "application/json",
@@ -40,19 +40,31 @@ class App extends Component {
 
   handleCartToggle =(select) =>{
     console.log('gggggggggggcart');
-    console.log(select)
- this.setState({cart: [...this.state.cart, select]})
-    // var temp = []
-    //   temp = this.state.cart
-
-      // temp.push(select)
+    console.log(this.state.cart)
+//  this.setState({cart: [...this.state.cart, select]})
+var temp = []
+temp = this.state.cart
+temp.push(select)
+  this.setState({
+   cart : temp,
+    select : select
+   })
+   if(JSON.parse(localStorage.getItem("product_cart"))!=null){
+   let temp = JSON.parse(localStorage.getItem("product_cart"));
+  //  console.log(this.state.cart)
+       temp.push(select)
         this.setState({
-      //     cart : temp,
-          select:select})
-      //     console.log(this.state.cart)
-      localStorage.setItem('product' , select)
-
+          select:this.state.select})
+          // console.log("select local:",select)
+          // cartInfo.push(select)
+      localStorage.setItem('product_cart', JSON.stringify(temp))
+      // console.log(JSON.parse(localStorage.getItem('product_cart')))
+   } else {
+     let temp = []
+     temp.push(select)
+     localStorage.setItem('product_cart', JSON.stringify(temp))
    }
+  }
 
 
   changeHandler = (e) => {
@@ -119,11 +131,13 @@ class App extends Component {
         <Route exact path='/' render={(props) => this.state.data !== null ? <Home {...props} data={this.state.data} handleCartToggle={this.handleCartToggle} select ={this.state.select}  /> : <Home></Home>} />
         {/* <Route exact path ='/signin' component ={Login}></Route> */}
         {/* <Route exact path ='/signup' component ={Signup}></Route> */}
+
         <Route exact path='/login' component={LoginS}></Route>
         <Route exact path='/register' component={RegisterS}></Route>
         <Route exact path='/profile' component={Profile}></Route>
         <Route exact path='/form' component={Form}></Route>
         <Route exact path='/Product' component={Product}></Route>
+        <Route exact path='/Cart' render={(props) => this.state.data !== null ? <Cart {...props} data={this.state.data} handleCartToggle = {this.handleCartToggle}  cart ={this.state.cart} /> : null}></Route>
 
 
         {/* <Route exact path ='/signup' component ={Signup}></Route> */}

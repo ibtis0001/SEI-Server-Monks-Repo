@@ -18,12 +18,15 @@ export default class Home extends Component {
     return (
     <div className="mainContent">
 
-<HomeCarousel></HomeCarousel>
+<HomeCarousel>
+  
+</HomeCarousel>
 <br></br>
 <br></br>
 {/* {console.log(this.state.data)} */}
-<MainCont data = {this.state.data} handleCartToggle ={this.props.handleCartToggle} cart ={this.state.cart}></MainCont>
+<MainCont data = {this.state.data} handleCartToggle ={this.props.handleCartToggle}  ></MainCont>
 
     </div>
     )}
 }
+

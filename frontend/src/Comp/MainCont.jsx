@@ -19,7 +19,7 @@ export default class MainCont extends Component {
        desc = {item.desc}
        price = {item.price}
        handleCartToggle={this.props.handleCartToggle}
-       cart={this.state.cart}
+      //  cart={this.props.cart}
        select = {item}
      />
   
@@ -38,3 +38,4 @@ export default class MainCont extends Component {
     );
   }
 }
+

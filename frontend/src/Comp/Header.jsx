@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Navbar, Nav, Form, FormControl, Button, Image } from "react-bootstrap";
 import Modal from "react-responsive-modal";
-
+import jwt_decode from  'jsonwebtoken'
 
 
 
@@ -10,23 +10,21 @@ const modalStyle = {
   float: "right",
   color: "red",
 }
-
 export default class Header extends Component {
   state = {
-    open: false
+    open: false,
+   
   };
 
 
-
-  onOpenModal = () => {
-
-    this.setState({ open: true });
-  };
 
   onCloseModal = () => {
     this.setState({ open: false });
   };
-
+  logout =()=>{
+    console.log("logedOut")
+    localStorage.removeItem('usertoken')
+        }
   render() {
 
 
@@ -36,10 +34,14 @@ export default class Header extends Component {
           <Navbar.Brand href="/"><img height='70px' width='70px' src='https://i.ibb.co/bj9fYKr/download.png' />  </Navbar.Brand>
 
           <Nav className="ml-auto">
-            <Nav.Link href="/register">Seller Signup</Nav.Link>
-            <Nav.Link href="/login">Seller Login</Nav.Link>
-            <Nav.Link href='/form'>Form</Nav.Link>
-            <Nav.Link href='/Product'>Product</Nav.Link>
+            {(localStorage.usertoken) ? null : (<Nav.Link href="/register">Seller Signup</Nav.Link>)}
+            {(localStorage.usertoken) ? null : (<Nav.Link href="/login">Seller Login</Nav.Link>)}
+            {(localStorage.usertoken) ? (<Nav.Link href='/Product'>Product</Nav.Link>) : null}
+            {(localStorage.usertoken) ? (<Nav.Link href='/form'>Form</Nav.Link>) : null}
+            {(localStorage.usertoken) ? (<Nav.Link  href='/' onClick={this.logout}>Logout</Nav.Link> ) : null }
+            <a href="/Cart"> <Image   className='m-sm-4' height='30px' width='30px' src ='https://image.flaticon.com/icons/png/512/1374/1374128.png'></Image> </a> 
+
+
 
 
 
@@ -48,7 +50,6 @@ export default class Header extends Component {
           </Nav>
 
 
-          <Image className='m-sm-4' height='30px' width='30px' src='https://image.flaticon.com/icons/png/512/1374/1374128.png' onClick={() => this.onOpenModal()} />
 
           <Modal open={this.state.open} onClose={this.onCloseModal}>
             Stupppppid cart

@@ -16,6 +16,11 @@ class Profile extends Component {
     console.log(decoded)
     this.setState(decoded.user)
   }
+  logout =()=>{
+    console.log("logedOut")
+    localStorage.removeItem('usertoken')
+    this.props.history.push('/')
+        }
   render() {
     return (
       <div className="container">

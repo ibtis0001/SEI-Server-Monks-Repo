@@ -29,11 +29,11 @@ onSubmitHandelr = async (e)=>{
         return (
             <Form onSubmit={this.onSubmitHandelr}>
                 {(this.state.error) ? (<div className="ui negative message">
-<i className="close icon"></i>
-<div className="header">
-{this.state.error}
-</div>
-</div>) : ""}
+            <i className="close icon"></i>
+            <div className="header">
+            {this.state.error}
+            </div>
+        </div>) : ""}
             <Form.Field>
                 <label>email</label>
                 <input placeholder='email' name="email" 
