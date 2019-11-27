@@ -27,7 +27,7 @@ export default class Home extends Component {
 <br></br>
 <br></br>
 {/* {console.log(this.state.data)} */}
-<MainCont data = {this.state.data} handleCartToggle ={this.props.handleCartToggle} cart ={this.props.cart} select ={this.state.select} ></MainCont>
+<MainCont data = {this.state.data} handleCartToggle ={this.props.handleCartToggle}  ></MainCont>
 
     </div>
     )}
