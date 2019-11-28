@@ -24,7 +24,6 @@ const PostSchema = mongoose.Schema({
     type:Number,
     require:true
   },
-
   data:{
     type:Date,
     default:Date.now
@@ -52,20 +51,43 @@ const PostSchema = mongoose.Schema({
   isUser:{
     type:Boolean,
     default:true
+  },
+  imgLink:{
+    type:String
+  },
+  BuyReq:{
+    type:String
+  },
+  size_ar:{
+    type:String
+  },
+  Qnt:{
+    type:String
+  },
+  
+    title:String
+  },
+  {
+    desc:String
   }
-
+  ,
+  {
+    quantityS:Number
+  },
+  {
+    quantityM:Number
+  },
+  {
+    quantityL:Number
+  },
+  {
+    price:Number
+  
 })
-
-
 PostSchema.method.generateHash = function(pass){
   return bcrypt.hashSynce(pass,bcrypt.getSaltSync(8),null);
-
 };
-
 PostSchema.method.validPassword = function(pass){
   return bcrypt.compareSynce(pass,this.pass)
 };
-
-
-
 module.exports = mongoose.model('Acuser',PostSchema);

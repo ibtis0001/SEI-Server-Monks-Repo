@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Navbar, Nav, Form, FormControl, Button, Image } from "react-bootstrap";
 import Modal from "react-responsive-modal";
 import jwt_decode from  'jsonwebtoken'
-
+import Header1 from './Header'
 
 
 
@@ -13,7 +13,8 @@ const modalStyle = {
 export default class Header extends Component {
   state = {
     open: false,
-   
+    decoded : []
+
   };
 
 
@@ -25,6 +26,7 @@ export default class Header extends Component {
     console.log("logedOut")
     localStorage.removeItem('usertoken')
         }
+
   render() {
 
 

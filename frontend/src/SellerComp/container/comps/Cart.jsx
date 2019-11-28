@@ -23,52 +23,49 @@ onClick () {
 //   }
   //
   render() {
-    var cart = JSON.parse(localStorage.getItem("product_cart"));
-    // console.log(cart);
-    //  let len =cart.length
+    let elm =''
+    let sum=0
+  var cart = JSON.parse(localStorage.getItem("product_cart"));
+  if (cart != null) {
     let group = cart.reduce((r, a) => {
-    //   console.log("a", a);
-    //   console.log("r", r);
+      //   console.log("a", a);
+      //   console.log("r", r);
       r[a.id] = [...(r[a.id] || []), a];
       return r;
     }, {});
-    let cartelm=[];
-let j = 0
+    let cartelm = [];
+    let j = 0;
     let total = [];
     for (let i in group) {
-      cartelm.push(group[i].map(elm => {
-        // console.log(elm);
-        // console.log(elm.price)
-        let price = elm.price * (group[i].length );
-        total.push(price)
-
-        // console.log(group[i].length)
-      
-        if (group[i].indexOf(elm) == 0) {
-            j++
-          return (
-            <tr key={elm.id}>
-               
-              <td>{j}</td>
-              <td>{elm.name}</td>
-              <td>{group[i].length }</td>
-              <td>{price}</td>
-            </tr>
-           
+      cartelm.push(
+        group[i].map(elm => {
+          // console.log(elm);
+          // console.log(elm.price)
+          let price = elm.price * group[i].length;
+          total.push(price);
+          // console.log(group[i].length)
+          if (group[i].indexOf(elm) == 0) {
+            j++;
+            return (
+              <tr key={elm.id}>
+                <td>{j}</td>
+                <td>{elm.name}</td>
+                <td>{group[i].length}</td>
+                <td>{price}</td>
+              </tr>
+            );
+          }
+        })
       );
-        }
-        
-      }));
-     
     }
-   
     // console.log(total)
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
-   let sum= total.reduce(reducer)
+    sum = total.reduce(reducer);
+    elm = cartelm.map(elm => {
+      return elm;
+    });
+  }
 
-    let elm =cartelm.map((elm)=>{
-        return elm
-    })
     return (
       <div>
         <Table striped bordered hover>

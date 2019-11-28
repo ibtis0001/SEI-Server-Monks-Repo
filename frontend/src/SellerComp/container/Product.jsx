@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
+
 import {
   Table,
   Form,
@@ -29,7 +30,31 @@ const schema = yup.object({
     .required()
     .max(9999)
 });
+
 export default class AddProd extends Component {
+  componentDidMount() {
+    if (!localStorage.usertoken){
+      this.props.history.push('/login')
+      
+    }
+  }
+  acuser(e) {
+    (async () => {
+    const rawResponse = await fetch('http://localhost:3455/posts/admin/adc', {
+      method: 'POST',
+      
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+
+      },
+      body: JSON.stringify({title:e.title, desc:'',quantityS:e.quantityS,cquantityM:e.cquantityM,quantityL:e.quantityL,price:e.price})
+    });
+    const content = await rawResponse.json();
+    this.routeChange(e)
+    console.log(content);
+  })();
+  }
   render() {
     return (
       <Container>
@@ -67,12 +92,12 @@ export default class AddProd extends Component {
                       errors,
                       setFieldValue
                     }) => (
-              <Form method="get" onSubmit={handleSubmit}>
-                <Form.Group controlId="formBasicEmail">
+              <Form action="http://localhost:3455/posts/admin/add/" method="post"  >
+                <Form.Group controlId="formBasicEmail" >
                   <Form.Label>Product Title</Form.Label>
                   <Form.Control
                     type="text"
-                    name='title'
+                    name="title"
                     placeholder="Enter a Short Title "
                     value={values.title}
                         onChange={handleChange}
@@ -88,7 +113,7 @@ export default class AddProd extends Component {
                   <Form.Label> Description </Form.Label>
                   <Form.Control
                     type="text"
-                    name ='desc'
+                    name ="desc"
                     placeholder="Enter a Description for your Product, Be Generous! "
                     value={values.desc}
                     onChange={handleChange}
@@ -208,7 +233,7 @@ export default class AddProd extends Component {
                     </tr>
                   </Table>
                 </Form.Row>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" onSubmit={this.acuser} type="submit">
                   Submit
                 </Button>
               </Form>

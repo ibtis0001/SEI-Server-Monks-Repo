@@ -13,7 +13,8 @@ router.post('/register', (req, res) => {
         first_name : req.body.first_name,
         last_name : req.body.last_name,
         email : req.body.email,
-        password : req.body.password
+        password : req.body.password,
+       
     }
     console.log(newUser)
     // Search if email  exist or not
@@ -62,7 +63,7 @@ router.post('/login', (req, res)=> {
         }
         else {
             // if email not exist
-            console.log("yess")
+            console.log(" email not exist")
             res.json({error : "email is not 3found"}).status(404)
         }
     })

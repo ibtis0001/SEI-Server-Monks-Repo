@@ -13,9 +13,9 @@ const userSchema = new Schema({
         type: String
     
     },
-    isLogedIn:{
+    admin:{
         type:Boolean,
-        defaultf:false
+        default:false
     },
     
 
